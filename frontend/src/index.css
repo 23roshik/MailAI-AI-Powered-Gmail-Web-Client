@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply text-gray-100;
+  }
+  * {
+    @apply box-border;
+  }
+  ::-webkit-scrollbar {
+    @apply w-1.5;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-700 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-600;
+  }
+}
+
+@layer components {
+  .email-body-html {
+    @apply text-gray-200 text-sm leading-relaxed;
+  }
+  .email-body-html a {
+    @apply text-brand-400 underline;
+  }
+  .email-body-html p {
+    @apply mb-3;
+  }
+  .email-body-html blockquote {
+    @apply border-l-4 border-gray-600 pl-4 text-gray-400 italic my-3;
+  }
+  .btn-primary {
+    @apply bg-brand-600 hover:bg-brand-500 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply bg-gray-700 hover:bg-gray-600 text-gray-100 px-4 py-2 rounded-lg font-medium transition-colors duration-200;
+  }
+  .btn-ghost {
+    @apply hover:bg-gray-800 text-gray-400 hover:text-gray-100 px-3 py-2 rounded-lg transition-colors duration-200;
+  }
+  .input-field {
+    @apply bg-gray-800 border border-gray-700 text-gray-100 placeholder-gray-500 rounded-lg px-3 py-2 w-full focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors;
+  }
+  .card {
+    @apply bg-gray-900 border border-gray-800 rounded-xl;
+  }
+  .email-row {
+    @apply flex items-start gap-3 px-4 py-3 cursor-pointer border-b border-gray-800 hover:bg-gray-800/60 transition-colors duration-150;
+  }
+  .email-row.unread {
+    @apply bg-gray-800/30;
+  }
+  .email-row.selected {
+    @apply bg-brand-900/30 border-l-2 border-l-brand-500;
+  }
+}
+
+/* Typing indicator dots */
+.typing-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #818cf8;
+  animation: typing 1.2s infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typing {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-6px); }
+}
+
+/* AI action flash animation */
+@keyframes actionFlash {
+  0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4); }
+  70% { box-shadow: 0 0 0 8px rgba(99, 102, 241, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
+}
+.ai-action-flash {
+  animation: actionFlash 0.6s ease-out;
+}

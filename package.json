@@ -1,0 +1,15 @@
+{
+  "name": "mail-app",
+  "version": "1.0.0",
+  "description": "AI-Powered Mail Web Application",
+  "scripts": {
+    "install:all": "cd backend && npm install && cd ../frontend && npm install",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "setup": "npm run install:all && cp backend/.env.example backend/.env && echo '\\n✅ Setup complete! Edit backend/.env with your credentials, then run dev:backend and dev:frontend'"
+  },
+  "workspaces": [
+    "backend",
+    "frontend"
+  ]
+}
